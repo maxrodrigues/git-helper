@@ -22,6 +22,10 @@ fi
 # get changed files
 changed_files=$(git status -s | awk '{print $2}')
 
+if [ -z "$changed_files" ]; then
+  echo -e "N"
+fi
+
 # get selected files
 selected=$(echo "$changed_files" | fzf --bind space:select -m --prompt="Use the spacebar to select the files.: " --preview 'git diff --color=always {}' --border --height=50%)
 
