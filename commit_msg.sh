@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 set -e
+clear
 
-echo "Selecione o tipo de commit:"
+GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
+
+# Verifica alterações
+if git diff --cached --quiet && git diff --quiet; then
+  echo "🌈 Nenhuma alteração encontrada — bora tomar um café?"
+  exit 0
+fi
+
+branch=$(git branch --show-current)
+echo "📦 Branch atual: $branch"
+echo
+
+echo -e "${GREEN}Selecione o tipo de commit:${NC}"
+
 echo "1. feat: Novo recurso ✨"
 echo "2. fix: Correção de bug 🐛"
 echo "3. docs: Documentação 📚"
@@ -15,11 +29,13 @@ echo "10. ci: Integração contínua 🧱"
 echo "11. raw: Dados RAW 🗃️"
 echo "12. cleanup: Limpeza de código 🧹"
 echo "13. remove: Remoção de arquivos 🗑️"
+echo "0. Cancelar ❌"
 echo
 
 read -p "Digite o número correspondente ao tipo de commit: " commit_type
 
 case $commit_type in
+  0) echo "Operação cancelada."; exit 0;;
   1) type="feat"; emoji="✨";;
   2) type="fix"; emoji="🐛";;
   3) type="docs"; emoji="📚";;
@@ -37,10 +53,22 @@ case $commit_type in
 esac
 
 echo
-read -p "Digite a mensagem do commit: " message
+read -p "✏️  Escreva a mensagem do commit: " message
+if [[ -z "$message" ]]; then
+  echo "⚠️  A mensagem não pode estar vazia!"
+  exit 1
+fi
 
 commit_message="[$type] $emoji: $message"
+
+echo
+echo "💬 Commit final:"
+echo "$commit_message"
+read -p "Confirmar commit? [S/n]: " confirm
+confirm=${confirm:-S}
+[[ ! $confirm =~ ^[sS]$ ]] && echo "❌ Commit cancelado." && exit 0
+
 git commit -a -m "$commit_message"
 
 echo
-echo "Commit criado com sucesso: $commit_message"
+echo "✅ Commit criado com sucesso: $commit_message"
