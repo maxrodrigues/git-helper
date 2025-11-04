@@ -3,9 +3,9 @@
 
 set -e
 
-#REPO_URL="https://github.com/seu-usuario/git-helper.git"
+REPO_URL="https://github.com/maxrodrigues/git-helper.git"
 INSTALL_DIR="$HOME/.git-helper"
-BIN_PATH="/usr/local/bin/git-helper"
+BIN_PATH="/usr/local/bin/add"
 clear
 
 echo -e "========================================"
@@ -32,17 +32,17 @@ if ! command -v fzf &>/dev/null; then
 fi
 
 # Clona ou atualiza
-#if [ -d "$INSTALL_DIR" ]; then
-#  echo "🔄 Atualizando versão existente..."
-#  cd "$INSTALL_DIR" && git pull
-#else
-#  git clone "$REPO_URL" "$INSTALL_DIR"
-#fi
-#
+if [ -d "$INSTALL_DIR" ]; then
+  echo "🔄 Atualizando versão existente..."
+  cd "$INSTALL_DIR" && git pull
+else
+  git clone "$REPO_URL" "$INSTALL_DIR"
+fi
+
 # Dá permissão e cria link simbólico
-#chmod +x "$INSTALL_DIR/git-helper.sh"
-#sudo ln -sf "$INSTALL_DIR/git-helper.sh" "$BIN_PATH"
-#
+chmod +x "$INSTALL_DIR/add_files.sh"
+sudo ln -sf "$INSTALL_DIR/add_files.sh" "$BIN_PATH"
+
 echo
 echo -e "✅ Instalação concluída!"
 echo -e "Agora você pode executar: git-helper"
