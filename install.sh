@@ -1,0 +1,50 @@
+#!/bin/bash
+# install.sh — Install Git Helper
+
+set -e
+
+#REPO_URL="https://github.com/seu-usuario/git-helper.git"
+INSTALL_DIR="$HOME/.git-helper"
+BIN_PATH="/usr/local/bin/git-helper"
+clear
+
+echo -e "========================================"
+echo -e "🚀 Instalando Git Helper..."
+echo -e "========================================"
+
+if ! command -v fzf &>/dev/null; then
+  echo "⚠️  fzf não encontrado."
+  read -p "Deseja instalar automaticamente? [Y/n]: " resp
+  resp=${resp:-S}
+
+  if [[ "$resp" =~ ^[sS]$ ]]; then
+    echo -e "📦 Instalando fzf..."
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      brew install fzf
+    else
+      sudo apt update -qq && sudo apt install -y fzf
+    fi
+    echo -e "✅ fzf instalado com sucesso!"
+  else
+    echo -e "❌ Instalação cancelada. Execute 'sudo apt install fzf' manualmente."
+    exit 1
+  fi
+fi
+
+# Clona ou atualiza
+#if [ -d "$INSTALL_DIR" ]; then
+#  echo "🔄 Atualizando versão existente..."
+#  cd "$INSTALL_DIR" && git pull
+#else
+#  git clone "$REPO_URL" "$INSTALL_DIR"
+#fi
+#
+# Dá permissão e cria link simbólico
+#chmod +x "$INSTALL_DIR/git-helper.sh"
+#sudo ln -sf "$INSTALL_DIR/git-helper.sh" "$BIN_PATH"
+#
+echo
+echo -e "✅ Instalação concluída!"
+echo -e "Agora você pode executar: git-helper"
+echo
+echo -e "Para atualizar no futuro, use: git-helper update"
