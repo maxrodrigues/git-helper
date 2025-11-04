@@ -15,7 +15,6 @@ update_git_helper() {
   exit 0
 }
 
-# --- Detecta se o usuário pediu atualização ---
 if [[ "$1" == "update" ]]; then
   update_git_helper
 fi
