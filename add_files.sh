@@ -24,6 +24,7 @@ changed_files=$(git status -s | awk '{print $2}')
 
 if [ -z "$changed_files" ]; then
   echo -e "N"
+  exit 0
 fi
 
 # get selected files
