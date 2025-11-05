@@ -11,7 +11,7 @@ if [ -z "$changed_files" ]; then
 fi
 
 # get selected files
-selected=$(echo "$changed_files" | fzf --bind space:select -m --prompt="Use a tecla de espaço para selecionar os arquivos.: " --preview 'git diff --color=always {}' --border --height=50%)
+selected=$(echo "$changed_files" | fzf --bind space:select -m --prompt="Use a tecla de espaço para selecionar os arquivos.: " --preview 'git diff --color=always {}' --border --height=100%)
 
 # check have a selected files
 if [ -z "$selected" ]; then
