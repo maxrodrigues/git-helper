@@ -49,6 +49,9 @@ sudo ln -sf "$INSTALL_DIR/uninstall.sh" "$BIN_PATH/git-helper-remove"
 
 echo
 echo -e "✅ Instalação concluída!"
-echo -e "Agora você pode executar: git-helper"
+echo -e "Agora você pode executar os comandos:"
+echo -e "➡️ add - Para adicionar os arquivos alterados."
+echo -e "➡️ commit - Para escrever uma mensagem escolhendo o tipo de commit."
 echo
-echo -e "Para atualizar no futuro, use: git-helper update"
+echo -e "Para atualizar no futuro, use: git-helper-update"
+echo -e "Caso queira remover o git-helper, use: git-helper-remove"
