@@ -89,7 +89,6 @@ read -p "Confirmar commit? [S/n]: " confirm
 confirm=${confirm:-S}
 [[ ! $confirm =~ ^[sS]$ ]] && echo "❌ Commit cancelado." && exit 0
 
-git add -A
 git commit -m "$commit_message"
 
 echo
