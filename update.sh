@@ -21,9 +21,10 @@ if [ "$LOCAL" = "$BASE" ]; then
     git pull origin main
     chmod +x "$INSTALL_DIR"/*.sh
 
-    sudo ln -sf "$INSTALL_DIR/git-add-helper.sh" "$BIN_PATH/add"
-    sudo ln -sf "$INSTALL_DIR/git-commit-helper.sh" "$BIN_PATH/commit"
+    sudo ln -sf "$INSTALL_DIR/add.sh" "$BIN_PATH/add"
+    sudo ln -sf "$INSTALL_DIR/commit.sh" "$BIN_PATH/commit"
     sudo ln -sf "$INSTALL_DIR/update.sh" "$BIN_PATH/git-helper-update"
+    sudo ln -sf "$INSTALL_DIR/uninstall.sh" "$BIN_PATH/git-helper-remove"
 
     echo "✅ Git Helper atualizado com sucesso!"
   else
