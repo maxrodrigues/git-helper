@@ -80,7 +80,7 @@ if [[ -z "$message" ]]; then
   exit 1
 fi
 
-commit_message="[$type] $selected: $message"
+commit_message="[$type] $emoji: $message"
 
 echo
 echo "💬 Commit final:"

@@ -1,23 +1,6 @@
 #!/usr/bin/env bash
 set -e
-
-update_git_helper() {
-  echo "🔄 Atualizando Git Helper..."
-  if [ -d "$INSTALL_DIR" ]; then
-    cd "$INSTALL_DIR"
-    git pull origin main
-    chmod +x git-helper.sh
-    sudo ln -sf "$INSTALL_DIR/git-helper.sh" "$BIN_PATH"
-    echo "✅ Atualizado com sucesso!"
-  else
-    echo "❌ Diretório de instalação não encontrado!"
-  fi
-  exit 0
-}
-
-if [[ "$1" == "update" ]]; then
-  update_git_helper
-fi
+source ./update.sh
 
 # get changed files
 changed_files=$(git status -s | awk '{print $2}')
