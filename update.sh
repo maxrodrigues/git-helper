@@ -7,12 +7,19 @@ BIN_PATH="/usr/local/bin"
 clear
 echo "🔎 Verificando atualizações do Git Helper..."
 
+CURRENT_DIR=$(pwd)
+
+cd "$INSTALL_DIR"
+
 git fetch origin main &>/dev/null
 
 LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse @{u})
 BASE=$(git merge-base @ @{u})
 
-if [ "$LOCAL" = "$BASE" ]; then
+if [ "$LOCAL" = "$REMOTE" ]; then
+  echo "✅ O Git Helper já está atualizado!"
+elif  [ "$LOCAL" = "$BASE" ]; then
   clear
   echo "🚀 Nova versão disponível do Git Helper!"
   read -p "Deseja atualizar agora? [S/n]: " resp
@@ -30,4 +37,12 @@ if [ "$LOCAL" = "$BASE" ]; then
   else
     echo "⏸ Atualização cancelada pelo usuário."
   fi
+elif [ "$REMOTE" = "$BASE" ]; then
+  echo "⚠️  Seu repositório local está à frente do remoto."
+  echo "Talvez você tenha feito modificações locais."
+else
+  echo "⚠️  O repositório local e remoto divergiram!"
+  echo "Recomendo rodar 'git pull' manualmente para resolver."
 fi
+
+cd "$CURRENT_DIR"
