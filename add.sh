@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-update
 
 # get changed files
 changed_files=$(git status -s | awk '{print $2}')
