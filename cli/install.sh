@@ -4,7 +4,7 @@
 set -e
 
 REPO_URL="https://github.com/maxrodrigues/git-helper.git"
-INSTALL_DIR="$HOME/.git-helper/cli"
+INSTALL_DIR="$HOME/.git-helper"
 BIN_PATH="/usr/local/bin"
 clear
 
@@ -40,12 +40,12 @@ else
 fi
 
 # Dá permissão e cria link simbólico
-chmod +x "$INSTALL_DIR"/*.sh
+chmod +x "$INSTALL_DIR/cli"/*.sh
 
-sudo ln -sf "$INSTALL_DIR/add.sh" "$BIN_PATH/add"
-sudo ln -sf "$INSTALL_DIR/commit.sh" "$BIN_PATH/commit"
-sudo ln -sf "$INSTALL_DIR/update.sh" "$BIN_PATH/git-helper-update"
-sudo ln -sf "$INSTALL_DIR/uninstall.sh" "$BIN_PATH/git-helper-remove"
+sudo ln -sf "$INSTALL_DIR/cli/add.sh" "$BIN_PATH/add"
+sudo ln -sf "$INSTALL_DIR/cli/commit.sh" "$BIN_PATH/commit"
+sudo ln -sf "$INSTALL_DIR/cli/update.sh" "$BIN_PATH/git-helper-update"
+sudo ln -sf "$INSTALL_DIR/cli/uninstall.sh" "$BIN_PATH/git-helper-remove"
 
 echo
 echo -e "✅ Instalação concluída!"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-INSTALL_DIR="$HOME/.git-helper"
+INSTALL_DIR="$HOME/.git-helper/cli"
 BIN_PATH="/usr/local/bin"
 clear
 echo "⚙️  Iniciando remoção do Git Helper..."
@@ -26,4 +26,4 @@ fi
 
 echo "✅ Git Helper removido com sucesso!"
 echo "💡 Você pode reinstalar a qualquer momento com:"
-echo "   curl -fsSL https://raw.githubusercontent.com/maxrodrigues/git-helper/main/install.sh | bash"
+echo "   curl -fsSL https://raw.githubusercontent.com/maxrodrigues/git-helper/main/cli/install.sh | bash"
