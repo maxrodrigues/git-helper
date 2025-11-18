@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-INSTALL_DIR="$HOME/.git-helper"
+INSTALL_DIR="$HOME/.git-helper/cli"
 BIN_PATH="/usr/local/bin"
 
 clear

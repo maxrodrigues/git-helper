@@ -4,7 +4,7 @@
 set -e
 
 REPO_URL="https://github.com/maxrodrigues/git-helper.git"
-INSTALL_DIR="$HOME/.git-helper"
+INSTALL_DIR="$HOME/.git-helper/cli"
 BIN_PATH="/usr/local/bin"
 clear
 

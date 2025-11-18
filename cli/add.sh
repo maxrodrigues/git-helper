@@ -24,6 +24,4 @@ for arq in $selected; do
   echo "✅ Arquivo adicionado: $arq"
 done
 
-echo "🌟 Mudanças salvas com sucesso — bora carimbar esse commit?"
-echo
-echo "Digite 'commit' escolher o tipo de commit e a mensagem."
+commit
