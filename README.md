@@ -33,7 +33,7 @@ O **Git Helper** é um conjunto de scripts Bash que tornam o uso do Git mais flu
 Execute no terminal:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maxrodrigues/git-helper/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/maxrodrigues/git-helper/main/cli/install.sh | bash
 ```
 
 Isso irá:
